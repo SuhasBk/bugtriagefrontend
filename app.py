@@ -16,7 +16,7 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
 
 def model_predict(bug_id):
-    values = defualtdict()
+    values = defaultdict()
     
     infile=open('models/pred','rb')
     x=pickle.load(infile)
