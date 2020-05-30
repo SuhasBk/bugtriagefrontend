@@ -42,9 +42,9 @@ def model_predict(bug_id):
     #    print(values[key]['description'])
     #print(values[bug_id]['description'])
     
-    desc = values[bug_id]['description']
     name = y[yp[int(bug_id)]]
-    return (name , values[bug_id]['description'])
+    desc = values[bug_id]['description']
+    return (name , desc)
 
 
 @app.route('/', methods=['GET'])
