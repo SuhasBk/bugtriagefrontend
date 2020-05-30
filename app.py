@@ -40,10 +40,11 @@ def model_predict(bug_id):
       
     #for key in values.keys():
     #    print(values[key]['description'])
+    #print(values[bug_id]['description'])
     
-    print(values[bug_id]['description'])
-        
-    return y[yp[int(bug_id)]]
+    desc = values[bug_id]['description']
+    name = y[yp[int(bug_id)]]
+    return (name , values[bug_id]['description'])
 
 
 @app.route('/', methods=['GET'])
@@ -56,9 +57,8 @@ def index():
 def predict():
     if request.method == "POST":
          bug_id = request.form.get('bug_id')
-         devname = model_predict(bug_id)
-         print(type(devname))
-         return render_template('index.html', dev =devname.encode('utf-8').rstrip())
+         devname,description = model_predict(bug_id)
+         return render_template('index.html', dev =devname, desc=description)
 
 if __name__ == '__main__':
     app.run(port=5007, threaded=False)
