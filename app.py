@@ -30,12 +30,12 @@ def model_predict(bug_id):
     print(y)
     
     for entry in temp:
-        values[entry[0]] = {
-            'issue_id' : entry[1],
-            'issue_title' : entry[2],
-            'reported_time' : entry[3],
-            'owner' : entry[4],
-            'description' : entry[5]
+        values[entry['id']] = {
+            'issue_id' : entry['issue_id'],
+            'issue_title' : entry['issue_title'],
+            'reported_time' : entry['reported_time'],
+            'owner' : entry['owner'],
+            'description' : entry['description']
         }
       
     #for key in values.keys():
